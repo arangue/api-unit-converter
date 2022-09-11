@@ -15,7 +15,7 @@ public class LengthService {
             case "inch"      : return convertInch(amount);
             case "centimeter": return convertCentimeter(amount);
             case "millimeter": return convertMillimeter(amount);
-            default:           throw new InvalidUnitException("", 400);
+            default:           throw new InvalidUnitException("Invalid unit", 400);
         }
     }
 
