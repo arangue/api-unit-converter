@@ -10,11 +10,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ExceptionControllerAdvice {
 
-/*    @ExceptionHandler(InvalidUnitException.class)
-    public ResponseEntity<?> handle(InvalidUnitException ex) {
-        return new ResponseEntity<>(ex.getMsg(), HttpStatus.valueOf(ex.getStatus()));
-    }*/
-
     @ExceptionHandler(InvalidUnitException.class)
     public ResponseEntity<?> handle(InvalidUnitException ex) {
         return buildResponse(HttpStatus.valueOf(ex.getStatus()), ex.getMessage());
