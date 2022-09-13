@@ -1,5 +1,6 @@
 package com.converter.unit.controller;
 
+import com.converter.unit.domain.enums.TemperatureUnit;
 import com.converter.unit.exception.InvalidUnitException;
 import com.converter.unit.service.TemperatureService;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +19,9 @@ public class TemperatureController {
         this.service = service;
     }
 
-    public enum units {
-        fahrenheit, celsius, kelvin
-    }
-
     @GetMapping("/temperature")
     public ResponseEntity<?> temperature(){
-        return ResponseEntity.ok().body(units.values());
+        return ResponseEntity.ok().body(TemperatureUnit.values());
     }
     @GetMapping("/temperature/{unit}")
     public ResponseEntity<?> defaultTemperature(@PathVariable String unit) throws InvalidUnitException {
